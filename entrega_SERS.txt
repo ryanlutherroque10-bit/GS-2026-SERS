@@ -6,7 +6,7 @@ Ryan Luther Roque - RM 572993
 João Guilherme Figueiredo - RM 572697
 
 Repositório no GitHub:
-https://github.com/ryanlutherroque10-bit/sers-citizen-assist-ai
+https://github.com/ryanlutherroque10-bit/GS-2026-SERS
 
 Vídeo no YouTube (não listado, até 3 minutos):
 PENDENTE - o vídeo ainda não foi gravado. Substituir esta linha pelo link antes de enviar.
