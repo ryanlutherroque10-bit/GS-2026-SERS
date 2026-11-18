@@ -1,6 +1,6 @@
 # Testes com usuários
 
-> **Registro recebido em 18/11/2026:** o usuário forneceu as respostas identificadas como P1 a P5. A data, a forma de aplicação e quem aplicou os testes não foram informados. Esses dados devem ser confirmados pela equipe antes da entrega.
+> **Testes realizados em 17/11/2026:** Ryan Luther informou que aplicou remotamente os testes com P1 a P5. As respostas foram recebidas para registro em 18/11/2026.
 
 O enunciado pede que a equipe verifique a compreensão e a utilidade das orientações, registrando as situações testadas, os comentários recebidos e os ajustes realizados, sem expor dados pessoais desnecessários. Ele não fixa a quantidade de participantes; sugerimos de 3 a 5 pessoas do público (adultos responsáveis pela conta de luz, de preferência com perfis diferentes: casa própria e alugada, com e sem Tarifa Social).
 
@@ -30,7 +30,7 @@ O enunciado pede que a equipe verifique a compreensão e a utilidade das orienta
 
 ## Registro dos testes
 
-Data(s): não informada(s) · Local/forma (presencial ou remota): não informado · Quem aplicou: não informado
+Data: 17/11/2026 · Forma: remota · Quem aplicou: Ryan Luther
 
 | Participante | Perfil (sem dados pessoais) | Situação testada | C1 | C2 | C3 | C4 | U1 | U2 | Comentários (U3 a U5) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -49,13 +49,14 @@ As respostas C1 a C4 foram preservadas em resumo, pois não foi informado se hou
 | Gasto mensal pouco visível e tabela difícil de ler | P1, P2, P3 | Destacar o custo mensal do banho e explicar as colunas da comparação | `energia/assistente.py`; commit `203d0c2` |
 | Dificuldade com kWh, dados da conta e Tarifa Social | P2, P4 | Incluir orientações curtas na coleta e um exemplo do limite de 80 kWh no resultado | `energia/assistente.py`; commit `203d0c2` |
 | Aquecedor aparece quando a instalação não é permitida | P5 | Identificar os cenários solares como indisponíveis e destacar a alternativa viável | `energia/assistente.py`; commit `203d0c2` |
+| Economia mensal da família não aparece diretamente | P3 | Mostrar a redução mensal estimada na conta ao escolher a alternativa A | `energia/assistente.py`; commit a registrar após publicação |
 
 ## Resumo
 
-- Participantes: 5 respostas recebidas, sem dados pessoais identificadores.
+- Participantes: 5 pessoas testadas remotamente em 17/11/2026 por Ryan Luther, sem dados pessoais identificadores no registro.
 - O que foi bem compreendido: reduzir a duração do banho é a primeira ação sem investimento; os resultados são estimativas; instalar aquecedor em imóvel alugado requer autorização.
 - O que precisou de ajuste: destaque do valor mensal, explicação de kWh e Tarifa Social, leitura da tabela e sinalização das opções solares indisponíveis.
-- O que ficou sem resolver: confirmar data, forma e responsável pela aplicação; validar as mudanças com participantes depois da revisão da interface.
+- O que ficou sem resolver: validar as mudanças com participantes depois da revisão da interface.
 
 ## Pontos que já esperamos observar
 
