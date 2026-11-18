@@ -76,11 +76,11 @@ entrega_SERS.txt           arquivo de entrega do Portal (ainda com pendência)
 
 ## Situação da entrega
 
-| Item do enunciado | Situação em 16/11/2026 |
+| Item do enunciado | Situação atual |
 | --- | --- |
 | Contexto, análise de consumo, comparação, integração ao assistente, referências e limitações | feito (código, dados e documentação neste repositório) |
 | Testes técnicos | feito: 15/15 |
-| **Testes com usuários** | Respostas P1 a P5 recebidas e registradas em `docs/testes-com-usuarios.md`; a equipe precisa confirmar data, forma e responsável pela aplicação |
+| **Testes com usuários** | Cinco testes remotos aplicados em 17/11/2026 por Ryan Luther, com respostas e ajustes registrados em `docs/testes-com-usuarios.md` |
 | **Vídeo de até 3 minutos no YouTube (não listado)** | **pendente da equipe.** Roteiro em `docs/roteiro-video.md` |
 | **Arquivo `.txt` do Portal** | **incompleto:** falta o link do vídeo |
 | Conferência das fontes pela equipe | pendente: abrir cada link de `docs/referencias.md` e confirmar os valores |
