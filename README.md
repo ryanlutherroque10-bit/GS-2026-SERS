@@ -42,7 +42,7 @@ Em cada pergunta, Enter aceita o valor entre colchetes, `?` explica de onde ele 
 python -m unittest discover -s tests -v
 ```
 
-O conjunto atual tem 18 testes técnicos (fórmulas, cenário documentado, Tarifa Social, limites, entradas inválidas, conversa, resumo e orientações para imóvel alugado). A versão anterior registrou 17/17 aprovados em [`evidencias/saida-testes.txt`](evidencias/saida-testes.txt). A versão atual será executada no GitHub Actions após a publicação.
+O conjunto atual tem 18 testes técnicos (fórmulas, cenário documentado, Tarifa Social, limites, entradas inválidas, conversa, resumo e orientações para imóvel alugado). Os **18 testes passaram** com Python 3.14.4 no [GitHub Actions](https://github.com/ryanlutherroque10-bit/GS-2026-SERS/actions/runs/44413788371), que também executou o cenário de exemplo. [`evidencias/saida-testes.txt`](evidencias/saida-testes.txt) registra a execução anterior de 17 testes.
 
 ## Resultado do cenário de referência
 
@@ -79,7 +79,7 @@ entrega_SERS.txt           arquivo de entrega do Portal (ainda com pendência)
 | Item do enunciado | Situação em 18/11/2026 |
 | --- | --- |
 | Contexto, análise de consumo, comparação, integração ao assistente, referências e limitações | feito (código, dados e documentação neste repositório) |
-| Testes técnicos | 18 testes na versão atual; execução no GitHub Actions após a publicação |
+| Testes técnicos | 18/18 aprovados no GitHub Actions; cenário de exemplo executado |
 | Testes com usuários | feito em 18/11/2026, de forma remota, com 5 pessoas (clareza média 4,2/5; utilidade média 4,6/5). Resultados e ajustes em `docs/testes-com-usuarios.md` |
 | **Vídeo de até 3 minutos no YouTube (não listado)** | **pendente da equipe.** Roteiro em `docs/roteiro-video.md` |
 | **Arquivo `.txt` do Portal** | **incompleto:** falta o link do vídeo |

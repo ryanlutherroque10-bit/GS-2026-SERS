@@ -81,7 +81,7 @@ Clareza média (U1 e U2 juntas): **4,2/5**. Utilidade média (U6): **4,6/5**.
 
 ## Ajustes realizados depois dos testes
 
-Alterações feitas em `energia/assistente.py` e `energia/calculos.py`, com verificações técnicas em `tests/test_energia.py`. A versão atual tem 18 testes, a executar no GitHub Actions.
+Alterações feitas em `energia/assistente.py` e `energia/calculos.py`, com verificações técnicas em `tests/test_energia.py`. A versão atual passou em [18/18 testes no GitHub Actions](https://github.com/ryanlutherroque10-bit/GS-2026-SERS/actions/runs/44413788371).
 
 | Problema observado | Quem relatou | Ajuste feito |
 | --- | --- | --- |
