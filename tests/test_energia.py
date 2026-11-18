@@ -168,6 +168,7 @@ class TestAssistente(unittest.TestCase):
         for trecho in (
             "88 kWh por mês",
             "R$ 83,60 por mês",
+            "a conta da casa pode cair cerca de R$ 31,35 por mês",
             "Comece pela alternativa A",
             "aquecedor solar",
             "Limites desta estimativa",
