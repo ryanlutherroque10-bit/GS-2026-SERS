@@ -1,6 +1,6 @@
 # Testes com usuários
 
-> **Situação em 16/11/2026: nenhum teste com pessoas foi realizado.** Este arquivo traz o roteiro e o formulário. As tabelas de resultados estão em branco de propósito e só devem ser preenchidas com o que acontecer de verdade. Testes automatizados e respostas simuladas não substituem participantes reais.
+> **Registro recebido em 18/11/2026:** o usuário forneceu as respostas identificadas como P1 a P5. A data, a forma de aplicação e quem aplicou os testes não foram informados. Esses dados devem ser confirmados pela equipe antes da entrega.
 
 O enunciado pede que a equipe verifique a compreensão e a utilidade das orientações, registrando as situações testadas, os comentários recebidos e os ajustes realizados, sem expor dados pessoais desnecessários. Ele não fixa a quantidade de participantes; sugerimos de 3 a 5 pessoas do público (adultos responsáveis pela conta de luz, de preferência com perfis diferentes: casa própria e alugada, com e sem Tarifa Social).
 
@@ -30,30 +30,32 @@ O enunciado pede que a equipe verifique a compreensão e a utilidade das orienta
 
 ## Registro dos testes
 
-Data(s): ____ · Local/forma (presencial ou remota): ____ · Quem aplicou: ____
+Data(s): não informada(s) · Local/forma (presencial ou remota): não informado · Quem aplicou: não informado
 
 | Participante | Perfil (sem dados pessoais) | Situação testada | C1 | C2 | C3 | C4 | U1 | U2 | Comentários (U3 a U5) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| P1 | | | | | | | | | |
-| P2 | | | | | | | | | |
-| P3 | | | | | | | | | |
-| P4 | | | | | | | | | |
-| P5 | | | | | | | | | |
+| P1 | Casa com 3 moradores | Casa informada e caso proposto de aluguel com Tarifa Social | 74,25 kWh/mês; cerca de R$ 70,54 | Banhos de 9 para 5 minutos, sem custo | Entendeu que é estimativa | Dois orçamentos e avaliação profissional | 4 | 4 | Usaria cronômetro; “retorno” confundiu; pediu destaque para o gasto mensal. No caso alugado, entendeu que precisa de autorização. |
+| P2 | Casa com 4 moradores | Casa informada e caso proposto de aluguel com Tarifa Social | 61,6 kWh/mês; cerca de R$ 55,44 | Banhos de 5 minutos, sem compra | Entendeu que não há garantia | Autorização do proprietário e orçamentos | 3 | 3 | Conversaria com moradores; não entendeu “kWh”; pediu ajuda para localizar os dados na conta. Precisou reler a tabela. |
+| P3 | Casa com 5 moradores | Casa informada e caso proposto de aluguel com Tarifa Social | Cerca de 110 kWh/mês; R$ 107,80 | Reduzir o tempo dos banhos | Entendeu que depende do uso real | Avaliar telhado, tamanho e orçamentos | 5 | 4 | Combinaria banhos mais curtos; confundiu economia anual com total em 10 anos; pediu economia mensal da casa. |
+| P4 | Casa com 3 moradores e Tarifa Social | Casa informada e caso proposto de aluguel com Tarifa Social | 46,2 kWh/mês; cerca de R$ 32,58 atribuídos ao banho | Reduzir banhos sem comprar equipamento | Entendeu a influência dos outros aparelhos | Autorização, local e orçamentos | 3 | 2 | Diminuiria banhos e acompanharia a conta; achou confuso o limite de 80 kWh; pediu exemplo do desconto. |
+| P5 | Casa com 4 moradores | Casa informada e caso proposto de aluguel com Tarifa Social | 81,6 kWh/mês; cerca de R$ 81,60 | Banhos de 5 minutos antes de comprar | Entendeu a variação por potência e hábitos | Permissão do imóvel e orçamentos | 4 | 5 | Mediria primeiro o tempo real; estranhou o aquecedor na tabela quando não pode instalar; pediu indicação clara da opção viável. |
 
-Para C1 a C4, anote "acertou", "acertou com ajuda" ou "não entendeu".
+As respostas C1 a C4 foram preservadas em resumo, pois não foi informado se houve ajuda durante a aplicação. Todos relataram que, no caso alugado proposto, o aquecedor não é indicado sem autorização do proprietário.
 
 ## Ajustes realizados depois dos testes
 
 | Problema observado | Quem relatou | Ajuste feito | Arquivo e commit |
 | --- | --- | --- | --- |
-| | | | |
+| Gasto mensal pouco visível e tabela difícil de ler | P1, P2, P3 | Destacar o custo mensal do banho e explicar as colunas da comparação | `energia/assistente.py`; commit a registrar após publicação |
+| Dificuldade com kWh, dados da conta e Tarifa Social | P2, P4 | Incluir orientações curtas na coleta e um exemplo do limite de 80 kWh no resultado | `energia/assistente.py`; commit a registrar após publicação |
+| Aquecedor aparece quando a instalação não é permitida | P5 | Identificar os cenários solares como indisponíveis e destacar a alternativa viável | `energia/assistente.py`; commit a registrar após publicação |
 
-## Resumo (preencher depois dos testes)
+## Resumo
 
-- Participantes: ____
-- O que foi bem compreendido: ____
-- O que precisou de ajuste: ____
-- O que ficou sem resolver: ____
+- Participantes: 5 respostas recebidas, sem dados pessoais identificadores.
+- O que foi bem compreendido: reduzir a duração do banho é a primeira ação sem investimento; os resultados são estimativas; instalar aquecedor em imóvel alugado requer autorização.
+- O que precisou de ajuste: destaque do valor mensal, explicação de kWh e Tarifa Social, leitura da tabela e sinalização das opções solares indisponíveis.
+- O que ficou sem resolver: confirmar data, forma e responsável pela aplicação; validar as mudanças com participantes depois da revisão da interface.
 
 ## Pontos que já esperamos observar
 
@@ -63,3 +65,4 @@ Hipóteses da equipe para prestar atenção durante os testes (não são resulta
 - "fração solar" e "kWh" podem precisar de explicação mais simples;
 - a diferença entre "economia por ano" e "retorno" pode confundir;
 - quem tem Tarifa Social pode estranhar a economia igual a zero.
+
