@@ -113,8 +113,8 @@ def coletar(ler=input, escrever=print) -> Entrada:
     )
 
 
-def _reais(valor: float) -> str:
-    return f"R$ {_n(valor)}"
+def _reais(valor: float, casas: int = 0) -> str:
+    return f"R$ {_n(valor, casas)}"
 
 
 def tabela(cenarios: dict[str, Cenario], horizonte: float) -> str:
@@ -139,12 +139,12 @@ def responder(entrada: Entrada, escrever=print) -> dict[str, Cenario]:
     escrever(
         f"Hoje o banho gasta cerca de {_n(ref.kwh_mes)} kWh por mês "
         f"({_n(entrada.potencia_w)} W × {entrada.minutos_por_banho:g} min × {entrada.banhos_por_dia:g} banhos × 30 dias), "
-        f"ou cerca de {_reais(ref.custo_energia_ano / 12)} por mês "
+        f"ou cerca de {_reais(ref.custo_energia_ano / 12, 2)} por mês "
         f"({_reais(ref.custo_energia_ano)} por ano) na conta."
     )
     if opcao_a.kwh_evitados_ano > 0:
         escrever(
-            f"Com a alternativa A, a conta da casa pode cair cerca de {_reais(opcao_a.economia_ano / 12)} "
+            f"Com a alternativa A, a conta da casa pode cair cerca de {_reais(opcao_a.economia_ano / 12, 2)} "
             "por mês, mantendo iguais os outros usos e a tarifa. É uma estimativa, não uma garantia."
         )
     if entrada.tarifa_social:
