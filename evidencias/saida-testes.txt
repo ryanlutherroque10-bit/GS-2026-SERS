@@ -2,6 +2,7 @@ test_conversa_completa_com_valores_do_usuario (test_energia.TestAssistente.test_
 test_entrada_invalida_ajuda_e_valores_fora_da_faixa (test_energia.TestAssistente.test_entrada_invalida_ajuda_e_valores_fora_da_faixa) ... ok
 test_exemplo_mostra_calculo_recomendacao_limites_e_fontes (test_energia.TestAssistente.test_exemplo_mostra_calculo_recomendacao_limites_e_fontes) ... ok
 test_sair_e_fim_da_entrada (test_energia.TestAssistente.test_sair_e_fim_da_entrada) ... ok
+test_tarifa_social_e_solar_indisponivel_ficam_claros (test_energia.TestAssistente.test_tarifa_social_e_solar_indisponivel_ficam_claros) ... ok
 test_cenario_padrao_documentado (test_energia.TestComparacao.test_cenario_padrao_documentado) ... ok
 test_combinacao_nao_conta_economia_em_dobro (test_energia.TestComparacao.test_combinacao_nao_conta_economia_em_dobro) ... ok
 test_entradas_incoerentes (test_energia.TestComparacao.test_entradas_incoerentes) ... ok
@@ -15,6 +16,6 @@ test_entradas_invalidas (test_energia.TestFormulas.test_entradas_invalidas) ... 
 test_fatura_sem_e_com_tarifa_social (test_energia.TestFormulas.test_fatura_sem_e_com_tarifa_social) ... ok
 
 ----------------------------------------------------------------------
-Ran 15 tests in 0.002s
+Ran 16 tests in 0.002s
 
 OK
