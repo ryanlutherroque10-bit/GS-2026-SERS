@@ -75,6 +75,8 @@ def coletar(ler=input, escrever=print) -> Entrada:
     minutos = n("Quantos minutos dura cada banho, em média", p.minutos_por_banho, "minutos_por_banho")
     banhos = n("Quantos banhos por dia na casa (somando todo mundo)", p.banhos_por_dia, "banhos_por_dia")
     escrever("\n-- Sua conta de luz --")
+    escrever("kWh é a unidade de energia da conta. Procure 'consumo (kWh)' e 'valor total' na fatura;")
+    escrever("se não encontrar, pressione Enter para usar os valores sugeridos e trate o resultado como exemplo.")
     tarifa = n("Preço do kWh em reais (total da conta dividido pelos kWh do mês)", p.tarifa_rs_kwh, "tarifa_rs_kwh")
     outros = n(
         "Consumo do resto da casa em kWh por mês (kWh da conta menos o banho)",
@@ -136,14 +138,26 @@ def responder(entrada: Entrada, escrever=print) -> dict[str, Cenario]:
     escrever(
         f"Hoje o banho gasta cerca de {_n(ref.kwh_mes)} kWh por mês "
         f"({_n(entrada.potencia_w)} W × {entrada.minutos_por_banho:g} min × {entrada.banhos_por_dia:g} banhos × 30 dias), "
-        f"ou {_reais(ref.custo_energia_ano)} por ano na conta."
+        f"ou cerca de {_reais(ref.custo_energia_ano / 12)} por mês "
+        f"({_reais(ref.custo_energia_ano)} por ano) na conta."
     )
+    if entrada.tarifa_social:
+        escrever(
+            "Tarifa Social neste modelo: os primeiros 80 kWh do consumo total da casa no mês têm desconto de 100%. "
+            "Exemplo: se a casa consumir 100 kWh, paga a energia dos 20 kWh acima do limite. "
+            "O custo atribuído ao banho depende também dos outros aparelhos."
+        )
     escrever("\nComparação para a mesma família, em 12 meses:")
     escrever(tabela(cenarios, entrada.horizonte_anos))
+    escrever("  kWh/mês = energia do banho por mês; Energia/ano = gasto do banho em 12 meses.")
+    escrever("  Economia/ano = diferença anual em relação a hoje; Total em 10 anos = gasto acumulado, com investimento.")
     escrever(
         "  Economia/ano: em relação à referência, já descontada a manutenção. Retorno: anos para a economia pagar o"
     )
     escrever("  investimento; em A+B conta só o que o aquecedor economiza além de A. Tarifa mantida constante.")
+    if not entrada.pode_instalar_solar:
+        escrever("  B e A+B são apenas comparações numéricas: aquecedor solar indisponível neste imóvel sem autorização/condições de instalação.")
+        escrever("  Opção viável agora: A (banho mais curto), se o tempo proposto for menor que o atual.")
     for chave, c in cenarios.items():
         escrever(f"  {chave}: {c.nome}")
     escrever("\nO que recomendamos:")
@@ -189,3 +203,4 @@ def main(argumentos: list[str] | None = None, ler=input, escrever=print) -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
