@@ -49,7 +49,7 @@ As respostas C1 a C4 foram preservadas em resumo, pois não foi informado se hou
 | Gasto mensal pouco visível e tabela difícil de ler | P1, P2, P3 | Destacar o custo mensal do banho e explicar as colunas da comparação | `energia/assistente.py`; commit `203d0c2` |
 | Dificuldade com kWh, dados da conta e Tarifa Social | P2, P4 | Incluir orientações curtas na coleta e um exemplo do limite de 80 kWh no resultado | `energia/assistente.py`; commit `203d0c2` |
 | Aquecedor aparece quando a instalação não é permitida | P5 | Identificar os cenários solares como indisponíveis e destacar a alternativa viável | `energia/assistente.py`; commit `203d0c2` |
-| Economia mensal da família não aparece diretamente | P3 | Mostrar a redução mensal estimada na conta ao escolher a alternativa A | `energia/assistente.py`; commit a registrar após publicação |
+| Economia mensal da família não aparece diretamente | P3 | Mostrar a redução mensal estimada na conta ao escolher a alternativa A | `energia/assistente.py`; commit `03def2b` |
 
 ## Resumo
 
