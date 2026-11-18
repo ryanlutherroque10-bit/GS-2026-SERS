@@ -42,7 +42,7 @@ Em cada pergunta, Enter aceita o valor entre colchetes, `?` explica de onde ele 
 python -m unittest discover -s tests -v
 ```
 
-São 15 testes técnicos (fórmulas, cenário documentado, Tarifa Social, limites, entradas inválidas e a conversa do assistente). Resultado de 16/11/2026: 15/15 aprovados, em [`evidencias/saida-testes.txt`](evidencias/saida-testes.txt).
+O conjunto inclui testes de fórmulas, cenário documentado, Tarifa Social, limites, entradas inválidas e a conversa do assistente. A execução anterior, de 16/11/2026, registrou 15/15 aprovados em [`evidencias/saida-testes.txt`](evidencias/saida-testes.txt). As mudanças posteriores devem ser testadas novamente antes da entrega.
 
 ## Resultado do cenário de referência
 
@@ -80,7 +80,7 @@ entrega_SERS.txt           arquivo de entrega do Portal (ainda com pendência)
 | --- | --- |
 | Contexto, análise de consumo, comparação, integração ao assistente, referências e limitações | feito (código, dados e documentação neste repositório) |
 | Testes técnicos | feito: 15/15 |
-| **Testes com usuários** | **pendente da equipe.** Roteiro e formulário prontos em `docs/testes-com-usuarios.md`; nenhum teste com pessoas foi realizado ainda |
+| **Testes com usuários** | Respostas P1 a P5 recebidas e registradas em `docs/testes-com-usuarios.md`; a equipe precisa confirmar data, forma e responsável pela aplicação |
 | **Vídeo de até 3 minutos no YouTube (não listado)** | **pendente da equipe.** Roteiro em `docs/roteiro-video.md` |
 | **Arquivo `.txt` do Portal** | **incompleto:** falta o link do vídeo |
 | Conferência das fontes pela equipe | pendente: abrir cada link de `docs/referencias.md` e confirmar os valores |
@@ -96,3 +96,4 @@ entrega_SERS.txt           arquivo de entrega do Portal (ainda com pendência)
 ## Uso de IA
 
 Este trabalho foi desenvolvido com apoio de IA generativa (código, textos e busca das fontes). Conforme o enunciado, a equipe é responsável por verificar dados, cálculos, referências e recomendações e por saber explicar as decisões adotadas.
+
