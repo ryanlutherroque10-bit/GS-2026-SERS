@@ -137,4 +137,5 @@ Exemplos de execução real estão em [`evidencias/saida-exemplo.txt`](../eviden
 - **Quando a recomendação A não é adequada como está:** pessoas com necessidades de saúde ou cuidado que exigem banhos mais longos; a meta deve ser ajustada pela família.
 - **Emissões:** só a eletricidade da rede; o fator muda a cada ano.
 - **Segurança:** instalação elétrica e hidráulica só com profissional habilitado.
-- **Testes com usuários:** ainda não realizados (ver [testes-com-usuarios.md](testes-com-usuarios.md)). A clareza das mensagens não foi validada com o público.
+- **Testes com usuários:** feitos em 18/11/2026, de forma remota, com 5 pessoas (P1 a P5). Todas entenderam as orientações principais; a clareza média foi 4,2/5 e a utilidade 4,6/5. Pediram mais destaque ao gasto anual e ao retorno, cálculos mais simples, orientação para quem mora de aluguel e comparação de potências; esses ajustes foram feitos no assistente. A amostra é pequena e não representa toda a população (ver [testes-com-usuarios.md](testes-com-usuarios.md)).
+

@@ -42,7 +42,7 @@ Em cada pergunta, Enter aceita o valor entre colchetes, `?` explica de onde ele 
 python -m unittest discover -s tests -v
 ```
 
-O conjunto inclui testes de fórmulas, cenário documentado, Tarifa Social, limites, entradas inválidas e a conversa do assistente. Em 18/11/2026, os **16 testes passaram** com Python 3.14.4 no [GitHub Actions](https://github.com/ryanlutherroque10-bit/GS-2026-SERS/actions/runs/44316103530), que também executou o cenário de exemplo. O arquivo [`evidencias/saida-testes.txt`](evidencias/saida-testes.txt) guarda a execução anterior, de 16/11/2026 (15 testes).
+O conjunto atual tem 18 testes técnicos (fórmulas, cenário documentado, Tarifa Social, limites, entradas inválidas, conversa, resumo e orientações para imóvel alugado). A versão anterior registrou 17/17 aprovados em [`evidencias/saida-testes.txt`](evidencias/saida-testes.txt). A versão atual será executada no GitHub Actions após a publicação.
 
 ## Resultado do cenário de referência
 
@@ -67,7 +67,7 @@ energia/assistente.py      interface de conversa no terminal
 dados/premissas.json       cada parâmetro com valor, unidade, tipo (dado público, estimado ou hipótese), justificativa e fonte
 docs/analise.md            contexto, dados, cálculos, comparação, justificativas e limitações
 docs/referencias.md        fontes com endereço e data de consulta
-docs/testes-com-usuarios.md  roteiro, formulário e registro dos testes com usuários
+docs/testes-com-usuarios.md  roteiro, resultados e ajustes dos testes com usuários
 docs/roteiro-video.md      roteiro do vídeo de até 3 minutos
 tests/test_energia.py      testes técnicos
 evidencias/                saídas reais dos testes e do assistente
@@ -76,11 +76,11 @@ entrega_SERS.txt           arquivo de entrega do Portal (ainda com pendência)
 
 ## Situação da entrega
 
-| Item do enunciado | Situação atual |
+| Item do enunciado | Situação em 18/11/2026 |
 | --- | --- |
 | Contexto, análise de consumo, comparação, integração ao assistente, referências e limitações | feito (código, dados e documentação neste repositório) |
-| Testes técnicos | 16/16 aprovados em 18/11/2026 no GitHub Actions; cenário de exemplo executado |
-| **Testes com usuários** | Cinco testes remotos aplicados em 17/11/2026 por Ryan Luther, com respostas e ajustes registrados em `docs/testes-com-usuarios.md` |
+| Testes técnicos | 18 testes na versão atual; execução no GitHub Actions após a publicação |
+| Testes com usuários | feito em 18/11/2026, de forma remota, com 5 pessoas (clareza média 4,2/5; utilidade média 4,6/5). Resultados e ajustes em `docs/testes-com-usuarios.md` |
 | **Vídeo de até 3 minutos no YouTube (não listado)** | **pendente da equipe.** Roteiro em `docs/roteiro-video.md` |
 | **Arquivo `.txt` do Portal** | **incompleto:** falta o link do vídeo |
 | Conferência das fontes pela equipe | pendente: abrir cada link de `docs/referencias.md` e confirmar os valores |

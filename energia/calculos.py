@@ -223,6 +223,12 @@ def recomendar(e: Entrada, cenarios: dict[str, Cenario]) -> list[str]:
             "O aquecedor solar (B) não é indicado no seu caso agora: é preciso poder instalar no imóvel "
             "(casa própria ou autorização do proprietário) e ter telhado ou laje com sol."
         )
+        linhas.append(
+            "Para quem mora de aluguel: o aquecedor solar é uma obra no imóvel, então só vale conversar se o "
+            "proprietário autorizar e souber de quem é o equipamento se você se mudar. Enquanto isso, o que está ao "
+            "seu alcance é a alternativa A: banhos mais curtos e o chuveiro na potência mais baixa em que o banho "
+            "continue confortável. Troque o chuveiro só se o contrato permitir."
+        )
     elif b.payback_anos is None:
         linhas.append(
             "Com os valores informados, o aquecedor solar (B) não se paga: a economia anual não cobre a manutenção. "
@@ -280,3 +286,4 @@ AVISOS = (
     "Não mexa na instalação elétrica nem no telhado sem um profissional habilitado.",
     "Protótipo educacional: não é canal oficial e não guarda nenhuma informação digitada.",
 )
+

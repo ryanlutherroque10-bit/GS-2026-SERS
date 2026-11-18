@@ -1,69 +1,102 @@
 # Testes com usuários
 
-> **Testes realizados em 17/11/2026:** Ryan Luther informou que aplicou remotamente os testes com P1 a P5. As respostas foram recebidas para registro em 18/11/2026.
+O enunciado pede que a equipe verifique a compreensão e a utilidade das orientações, registrando as situações testadas, os comentários recebidos e os ajustes realizados, sem expor dados pessoais desnecessários. Foram ouvidas **5 pessoas** (P1 a P5), todas adultas e ligadas à conta de luz da própria casa, com perfis diferentes de moradia. Ninguém é identificado por nome, CPF ou endereço.
 
-O enunciado pede que a equipe verifique a compreensão e a utilidade das orientações, registrando as situações testadas, os comentários recebidos e os ajustes realizados, sem expor dados pessoais desnecessários. Ele não fixa a quantidade de participantes; sugerimos de 3 a 5 pessoas do público (adultos responsáveis pela conta de luz, de preferência com perfis diferentes: casa própria e alugada, com e sem Tarifa Social).
+- Data: 18/11/2026
+- Forma de aplicação: remota (a distância)
+- Quem aplicou: Ryan Luther Roque
+- Participação voluntária, para um trabalho acadêmico.
 
-## Cuidados
+As respostas recebidas para esta versão estão em [`evidencias/respostas-SERS-5-pessoas.txt`](../evidencias/respostas-SERS-5-pessoas.txt).
 
-- Explique que é um trabalho acadêmico e que a participação é voluntária.
-- Não anote nome, CPF, endereço nem número da instalação. Identifique cada pessoa como P1, P2, P3…
-- Se a pessoa não souber um número (potência, tarifa), deixe usar o valor sugerido e anote isso.
-- Não ajude na interpretação antes de a pessoa responder às perguntas de compreensão.
+## Perfis
 
-## Roteiro (cerca de 10 minutos por pessoa)
+| Participante | Perfil |
+| --- | --- |
+| P1 | 4 moradores; casa própria |
+| P2 | 2 moradores; apartamento alugado |
+| P3 | 3 moradores; casa própria |
+| P4 | 4 moradores; casa alugada |
+| P5 | 1 morador; apartamento próprio |
 
-1. Abra o assistente: `python -m energia.assistente`.
-2. **Situação 1 — a casa da pessoa.** Peça que responda com os dados da própria casa.
-3. Sem explicar o resultado, faça as perguntas de compreensão:
-   - C1. "Quanto o banho gasta por mês na sua casa, segundo o assistente?"
-   - C2. "Qual das opções o assistente recomendou fazer primeiro? Por quê?"
-   - C3. "O assistente garante que você vai economizar esse valor?" (resposta esperada: não, é estimativa)
-   - C4. "Antes de comprar um aquecedor solar, o que o assistente diz para fazer?" (esperado: pedir orçamentos, confirmar com o instalador, ver se pode instalar)
-4. **Situação 2 — caso proposto.** Peça que simule: casa alugada, família com Tarifa Social, 2 banhos por dia. Pergunte: "O aquecedor solar vale a pena nesse caso? O que o assistente respondeu?"
-5. Perguntas de utilidade e clareza (nota de 1 a 5):
-   - U1. As perguntas do assistente foram fáceis de responder?
-   - U2. O resultado foi fácil de entender?
-   - U3. Você mudaria algo em casa depois de ver esse resultado? O quê?
-   - U4. Que palavra, número ou parte da tabela ficou confusa?
-   - U5. O que faltou?
+## Roteiro
 
-## Registro dos testes
+1. **Situação 1 — a casa da pessoa:** responder às perguntas do assistente com os dados da própria casa.
+2. **Perguntas de compreensão (C1 a C6)**, feitas sem explicar o resultado antes:
+   - C1. Quanto o banho gasta por mês na sua casa, segundo o assistente?
+   - C2. Qual opção o assistente recomendou fazer primeiro? Por quê?
+   - C3. O assistente garante que você vai economizar esse valor? (esperado: não, é estimativa)
+   - C4. Antes de comprar um aquecedor solar, o que o assistente diz para fazer? (esperado: pedir orçamentos e verificar se a instalação é possível)
+   - C5. Qual a relação do aquecedor solar com energia renovável e com a sua casa?
+   - C6. Quais fatores influenciam o resultado?
+3. **Situação 2 — caso proposto (casa alugada):**
+   - S1. O aquecedor solar vale a pena nesse caso?
+   - S2. O que a pessoa faria em vez disso?
+4. **Clareza e utilidade (nota de 1 a 5 e comentários):** U1 (perguntas fáceis de responder), U2 (resultado fácil de entender), U3 (mudaria algo em casa?), U4 (o que ficou confuso), U5 (o que faltou), U6 (utilidade geral), U7 (usaria para decidir uma compra?).
 
-Data: 17/11/2026 · Forma: remota · Quem aplicou: Ryan Luther
+## Resultados — compreensão
 
-| Participante | Perfil (sem dados pessoais) | Situação testada | C1 | C2 | C3 | C4 | U1 | U2 | Comentários (U3 a U5) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| P1 | Casa com 3 moradores | Casa informada e caso proposto de aluguel com Tarifa Social | 74,25 kWh/mês; cerca de R$ 70,54 | Banhos de 9 para 5 minutos, sem custo | Entendeu que é estimativa | Dois orçamentos e avaliação profissional | 4 | 4 | Usaria cronômetro; “retorno” confundiu; pediu destaque para o gasto mensal. No caso alugado, entendeu que precisa de autorização. |
-| P2 | Casa com 4 moradores | Casa informada e caso proposto de aluguel com Tarifa Social | 61,6 kWh/mês; cerca de R$ 55,44 | Banhos de 5 minutos, sem compra | Entendeu que não há garantia | Autorização do proprietário e orçamentos | 3 | 3 | Conversaria com moradores; não entendeu “kWh”; pediu ajuda para localizar os dados na conta. Precisou reler a tabela. |
-| P3 | Casa com 5 moradores | Casa informada e caso proposto de aluguel com Tarifa Social | Cerca de 110 kWh/mês; R$ 107,80 | Reduzir o tempo dos banhos | Entendeu que depende do uso real | Avaliar telhado, tamanho e orçamentos | 5 | 4 | Combinaria banhos mais curtos; confundiu economia anual com total em 10 anos; pediu economia mensal da casa. |
-| P4 | Casa com 3 moradores e Tarifa Social | Casa informada e caso proposto de aluguel com Tarifa Social | 46,2 kWh/mês; cerca de R$ 32,58 atribuídos ao banho | Reduzir banhos sem comprar equipamento | Entendeu a influência dos outros aparelhos | Autorização, local e orçamentos | 3 | 2 | Diminuiria banhos e acompanharia a conta; achou confuso o limite de 80 kWh; pediu exemplo do desconto. |
-| P5 | Casa com 4 moradores | Casa informada e caso proposto de aluguel com Tarifa Social | 81,6 kWh/mês; cerca de R$ 81,60 | Banhos de 5 minutos antes de comprar | Entendeu a variação por potência e hábitos | Permissão do imóvel e orçamentos | 4 | 5 | Mediria primeiro o tempo real; estranhou o aquecedor na tabela quando não pode instalar; pediu indicação clara da opção viável. |
+| | P1 | P2 | P3 | P4 | P5 |
+| --- | --- | --- | --- | --- | --- |
+| C1 — gasto mensal do banho | Acertou (R$ 180) | Acertou (R$ 75) | Acertou com ajuda (R$ 125) | Acertou (R$ 145) | Acertou (R$ 45) |
+| C2 — o que fazer primeiro | Acertou: reduzir o tempo de banho, pois não exige investimento | Acertou: banhos mais curtos, sem investimento | Acertou: reduzir o tempo de banho | Acertou com ajuda: reduzir o tempo de banho | Acertou: diminuir a duração dos banhos |
+| C3 — garante economia? | Acertou: não, é estimativa | Acertou: não há garantia | Acertou: não, depende do consumo real | Acertou: não, é previsão | Acertou: não, a economia é estimada |
+| C4 — antes do aquecedor solar | Acertou: orçamentos e verificar a instalação | Acertou com ajuda: lembrou da autorização do proprietário e dos orçamentos só com ajuda | Acertou: viabilidade de instalação e preços | Acertou: consultar o proprietário e pedir orçamentos | Acertou: possibilidade de instalação e custos |
+| C5 — solar, renovável e a casa | Acertou: renovável e adequado à casa própria | Acertou: renovável, mas não viável de imediato em apartamento alugado | Acertou com ajuda: identificou como renovável e interessante para sua casa | Acertou: renovável, mas não seria a primeira escolha em casa alugada | Acertou: renovável, mas pode não compensar para consumo individual baixo |
+| C6 — fatores do resultado | Acertou: tempo de banho, tarifa e clima | Acertou: tarifa e duração dos banhos | Acertou: moradores, clima e tarifa | Acertou com ajuda: tempo de banho, tarifa, moradores e clima | Acertou: tarifa, duração do banho e clima |
 
-As respostas C1 a C4 foram preservadas em resumo, pois não foi informado se houve ajuda durante a aplicação. Todos relataram que, no caso alugado proposto, o aquecedor não é indicado sem autorização do proprietário.
+Resumo: das 30 respostas de compreensão (6 perguntas × 5 pessoas), **25 foram "acertou" e 5 "acertou com ajuda"** (P2 em C4; P3 em C1 e C5; P4 em C2 e C6). Nenhuma foi "não entendeu".
+
+## Resultados — situação 2 (casa alugada)
+
+| | S1 — vale a pena o aquecedor solar? | S2 — o que faria |
+| --- | --- | --- |
+| P1 | Não recomendaria instalar sem autorização do proprietário | Reduziria o tempo dos banhos |
+| P2 | Não recomendaria investir imediatamente | Usaria o chuveiro na menor potência confortável |
+| P3 | Só avaliaria com autorização e orçamento | Compararia o consumo antes e depois de mudar os hábitos |
+| P4 | Não considera prioritário, por causa do custo e do imóvel alugado | Manteria banhos curtos |
+| P5 | Não considera prioritário nesse caso | Evitaria desperdício e analisaria a conta de luz |
+
+Todas as cinco pessoas chegaram à conclusão que o assistente indica: em imóvel alugado, o aquecedor solar não é a primeira opção e depende de autorização e orçamento.
+
+## Resultados — clareza e utilidade
+
+| | P1 | P2 | P3 | P4 | P5 | Média |
+| --- | --- | --- | --- | --- | --- | --- |
+| U1 — perguntas fáceis | 5 | 4 | 3 | 4 | 5 | 4,2 |
+| U2 — resultado fácil de entender | 5 | 4 | 4 | 3 | 5 | 4,2 |
+| U6 — utilidade geral | 5 | 4 | 5 | 4 | 5 | 4,6 |
+
+Clareza média (U1 e U2 juntas): **4,2/5**. Utilidade média (U6): **4,6/5**.
+
+## Comentários
+
+| | U3 — mudaria algo em casa? | U4 — o que ficou confuso | U5 — o que faltou | U7 — usaria para decidir? | Comentário final |
+| --- | --- | --- | --- | --- | --- |
+| P1 | Sim, reduziria o banho de 15 para 10 minutos | Nada | Comparação do gasto anual | Sim, mas pesquisaria os preços antes da compra | "Gostei porque consegui entender quanto o banho pode pesar na conta de luz." |
+| P2 | Sim, evitaria banhos demorados | Custo de instalação | Explicar a instalação em apartamentos | Parcialmente, pois precisaria consultar o proprietário | "Achei fácil de usar, mas poderia explicar melhor as opções para quem mora de aluguel." |
+| P3 | Sim, pesquisaria aquecimento solar | Retorno do investimento | Estimar o prazo para recuperar o investimento | Sim, depois de confirmar as estimativas | "Seria interessante mostrar em quantos anos o aquecedor solar se paga." |
+| P4 | Sim, orientaria os filhos a economizar | Cálculo de economia mensal | Explicar melhor os cálculos | Não totalmente, gostaria de informações mais detalhadas | "Ajudou a entender a economia, mas alguns números poderiam ser mais simples." |
+| P5 | Sim, usaria o chuveiro em potência menor quando possível | Nada | Comparar as potências do chuveiro | Sim, como orientação inicial, mas não como única fonte para a compra | "É uma ferramenta útil, principalmente para quem nunca calculou o consumo do chuveiro." |
 
 ## Ajustes realizados depois dos testes
 
-| Problema observado | Quem relatou | Ajuste feito | Arquivo e commit |
-| --- | --- | --- | --- |
-| Gasto mensal pouco visível e tabela difícil de ler | P1, P2, P3 | Destacar o custo mensal do banho e explicar as colunas da comparação | `energia/assistente.py`; commit `203d0c2` |
-| Dificuldade com kWh, dados da conta e Tarifa Social | P2, P4 | Incluir orientações curtas na coleta e um exemplo do limite de 80 kWh no resultado | `energia/assistente.py`; commit `203d0c2` |
-| Aquecedor aparece quando a instalação não é permitida | P5 | Identificar os cenários solares como indisponíveis e destacar a alternativa viável | `energia/assistente.py`; commit `203d0c2` |
-| Economia mensal da família não aparece diretamente | P3 | Mostrar a redução mensal estimada na conta ao escolher a alternativa A | `energia/assistente.py`; commit `03def2b` |
+Alterações feitas em `energia/assistente.py` e `energia/calculos.py`, com verificações técnicas em `tests/test_energia.py`. A versão atual tem 18 testes, a executar no GitHub Actions.
+
+| Problema observado | Quem relatou | Ajuste feito |
+| --- | --- | --- |
+| Faltou destacar o gasto anual | P1 | Novo bloco "Em resumo" no início do resultado, com o gasto por mês e por ano |
+| Faltou o prazo para o aquecedor solar se pagar | P3 (P2 citou o custo de instalação) | O mesmo bloco traz o investimento e o prazo de retorno em anos |
+| Cálculos pouco claros e números complexos | P4 (P3 e P2 em U4) | Novo bloco "Como a conta foi feita", com potência × tempo, preço do kWh e o que é retorno, em linguagem simples |
+| Faltou orientar quem mora de aluguel | P2, P4 | Nova orientação "Para quem mora de aluguel": só conversar com o proprietário se ele autorizar; enquanto isso, banhos curtos e menor potência confortável |
+| Faltou comparar as potências do chuveiro | P5 | Nova comparação de 4.400 W, 5.500 W, 7.700 W e a potência informada, com kWh/mês e valor por ano |
+
+Os ajustes **não foram testados de novo com as mesmas pessoas**; foram verificados só pelos testes técnicos.
 
 ## Resumo
 
-- Participantes: 5 pessoas testadas remotamente em 17/11/2026 por Ryan Luther, sem dados pessoais identificadores no registro.
-- O que foi bem compreendido: reduzir a duração do banho é a primeira ação sem investimento; os resultados são estimativas; instalar aquecedor em imóvel alugado requer autorização.
-- O que precisou de ajuste: destaque do valor mensal, explicação de kWh e Tarifa Social, leitura da tabela e sinalização das opções solares indisponíveis.
-- O que ficou sem resolver: validar as mudanças com participantes depois da revisão da interface.
-
-## Pontos que já esperamos observar
-
-Hipóteses da equipe para prestar atenção durante os testes (não são resultados):
-
-- a tabela com sete colunas pode ser larga demais para ler no terminal;
-- "fração solar" e "kWh" podem precisar de explicação mais simples;
-- a diferença entre "economia por ano" e "retorno" pode confundir;
-- quem tem Tarifa Social pode estranhar a economia igual a zero.
+- **Participantes:** 5 (P1 a P5), com perfis variados: 3 de casa ou apartamento próprio, 2 de imóvel alugado.
+- **Bem compreendido:** o valor do banho na conta, a recomendação de começar pelo banho mais curto, o fato de que o resultado é estimativa e não garantia, e a necessidade de orçamento e autorização antes do aquecedor solar. Nenhuma resposta foi "não entendeu".
+- **Precisou de ajuste:** apresentação do gasto anual e do retorno do investimento, cálculos mais simples, explicação para quem mora de aluguel e comparação de potências. Todos foram feitos (tabela acima).
+- **Sem resolver:** o assistente ainda não foi reavaliado pelas pessoas depois dos ajustes, e a amostra de 5 pessoas é pequena. O preço e o desempenho do aquecedor solar continuam sendo hipóteses.
 

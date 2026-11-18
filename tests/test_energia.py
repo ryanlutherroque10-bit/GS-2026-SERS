@@ -167,8 +167,6 @@ class TestAssistente(unittest.TestCase):
         self.assertEqual(codigo, 0)
         for trecho in (
             "88 kWh por mês",
-            "R$ 83,60 por mês",
-            "a conta da casa pode cair cerca de R$ 31,35 por mês",
             "Comece pela alternativa A",
             "aquecedor solar",
             "Limites desta estimativa",
@@ -187,15 +185,6 @@ class TestAssistente(unittest.TestCase):
         self.assertIn("kWh é a unidade de energia da conta", texto)
         self.assertIn("Até logo!", texto)
 
-    def test_tarifa_social_e_solar_indisponivel_ficam_claros(self):
-        entrada = replace(Entrada(), tarifa_social=True, pode_instalar_solar=False)
-        saida = []
-        assistente.responder(entrada, saida.append)
-        texto = "\n".join(saida)
-        self.assertIn("primeiros 80 kWh", texto)
-        self.assertIn("B e A+B são apenas comparações numéricas", texto)
-        self.assertIn("Opção viável agora: A", texto)
-
     def test_entrada_invalida_ajuda_e_valores_fora_da_faixa(self):
         codigo, texto = self.conversar(["abc", "?", "", "", "", "", "", "", "", "", "", "", "n"])
         self.assertIn("Não entendi", texto)
@@ -208,6 +197,38 @@ class TestAssistente(unittest.TestCase):
         self.assertEqual(codigo, 0)
         self.assertIn("Muitas respostas inválidas", texto)
         self.assertNotIn("RESULTADO", texto)
+
+    def test_resumo_explicacao_e_comparacao_de_potencias(self):
+        _, texto = self.conversar([], ["--exemplo"])
+        for trecho in (
+            "Em resumo:",
+            "R$ 83,60 por mês, ou R$ 1.003 por ano",
+            "R$ 31,35 por mês",
+            "se paga em cerca de 6,0 anos",
+            "Como a conta foi feita:",
+            "Retorno = investimento ÷ economia por ano",
+            "outra potência",
+            "4.400 W",
+            "7.700 W",
+            "(o seu)",
+        ):
+            self.assertIn(trecho, texto)
+
+    def test_casa_alugada_recebe_orientacao_propria(self):
+        # 4400 W, 10 min, 3 banhos, R$ 1,00, 60 kWh, com Tarifa Social, meta 6 min, NÃO pode instalar, valores padrão, não repetir
+        _, texto = self.conversar(["4400", "10", "3", "1,00", "60", "s", "6", "n", "", "", "n"])
+        self.assertIn("Para quem mora de aluguel", texto)
+        self.assertIn("autorização do proprietário", texto)
+        self.assertIn("não indicado agora", texto)
+
+    def test_tarifa_social_e_solar_indisponivel_ficam_claros(self):
+        entrada = replace(Entrada(), tarifa_social=True, pode_instalar_solar=False)
+        saida = []
+        assistente.responder(entrada, saida.append)
+        texto = "\n".join(saida)
+        self.assertIn("primeiros 80 kWh", texto)
+        self.assertIn("B e A+B são apenas comparações numéricas", texto)
+        self.assertIn("Opção viável agora: A", texto)
 
     def test_sair_e_fim_da_entrada(self):
         self.assertIn("Atendimento encerrado", self.conversar(["sair"])[1])

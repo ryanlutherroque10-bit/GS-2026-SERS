@@ -18,7 +18,7 @@ import sys
 from dataclasses import replace
 from pathlib import Path
 
-from .calculos import AVISOS, Cenario, Entrada, EntradaInvalida, _n, comparar, recomendar
+from .calculos import AVISOS, Cenario, Entrada, EntradaInvalida, _n, comparar, consumo_mensal_kwh, recomendar
 
 PREMISSAS = json.loads((Path(__file__).resolve().parents[1] / "dados" / "premissas.json").read_text(encoding="utf-8"))
 TENTATIVAS = 3
@@ -131,28 +131,60 @@ def tabela(cenarios: dict[str, Cenario], horizonte: float) -> str:
     return "\n".join(linhas)
 
 
+def resumo(entrada: Entrada, cenarios: dict[str, Cenario]) -> list[str]:
+    """Frases curtas com os números principais (gasto por mês e por ano, economia, retorno)."""
+    ref, a, b = cenarios["referencia"], cenarios["A"], cenarios["B"]
+    linhas = [
+        f"O banho custa cerca de {_reais(ref.custo_energia_ano / 12, 2)} por mês, ou {_reais(ref.custo_energia_ano)} por ano.",
+    ]
+    if a.economia_ano > 0.5:
+        linhas.append(
+            f"Banho mais curto (A): economiza cerca de {_reais(a.economia_ano / 12, 2)} por mês "
+            f"({_reais(a.economia_ano)} por ano), sem gastar nada."
+        )
+    if not entrada.pode_instalar_solar:
+        linhas.append(
+            "Aquecedor solar (B): não indicado agora; antes é preciso a autorização do proprietário (imóvel alugado) "
+            "e um telhado ou laje com sol."
+        )
+    elif b.payback_anos is None:
+        linhas.append("Aquecedor solar (B): com esses valores a economia não cobre a manutenção.")
+    else:
+        linhas.append(
+            f"Aquecedor solar (B): custa {_reais(b.investimento)} e se paga em cerca de {_n(b.payback_anos, 1)} anos."
+        )
+    return linhas
+
+
 def responder(entrada: Entrada, escrever=print) -> dict[str, Cenario]:
     cenarios = comparar(entrada)
     ref = cenarios["referencia"]
-    opcao_a = cenarios["A"]
     escrever("\n================ RESULTADO ================")
     escrever(
         f"Hoje o banho gasta cerca de {_n(ref.kwh_mes)} kWh por mês "
         f"({_n(entrada.potencia_w)} W × {entrada.minutos_por_banho:g} min × {entrada.banhos_por_dia:g} banhos × 30 dias), "
-        f"ou cerca de {_reais(ref.custo_energia_ano / 12, 2)} por mês "
-        f"({_reais(ref.custo_energia_ano)} por ano) na conta."
+        f"ou {_reais(ref.custo_energia_ano)} por ano na conta."
     )
-    if opcao_a.kwh_evitados_ano > 0:
-        escrever(
-            f"Com a alternativa A, a conta da casa pode cair cerca de {_reais(opcao_a.economia_ano / 12, 2)} "
-            "por mês, mantendo iguais os outros usos e a tarifa. É uma estimativa, não uma garantia."
-        )
+    escrever("\nEm resumo:")
+    for linha in resumo(entrada, cenarios):
+        escrever(f" • {linha}")
     if entrada.tarifa_social:
         escrever(
             "Tarifa Social neste modelo: os primeiros 80 kWh do consumo total da casa no mês têm desconto de 100%. "
             "Exemplo: se a casa consumir 100 kWh, paga a energia dos 20 kWh acima do limite. "
             "O custo atribuído ao banho depende também dos outros aparelhos."
         )
+    escrever("\nComo a conta foi feita:")
+    escrever(
+        f" • Energia do banho = potência × tempo. {_n(entrada.potencia_w)} W = {_n(entrada.potencia_w / 1000, 1)} kW; "
+        f"{entrada.minutos_por_banho:g} min × {entrada.banhos_por_dia:g} banhos × 30 dias = "
+        f"{_n(entrada.minutos_por_banho * entrada.banhos_por_dia * 30 / 60, 1)} horas por mês."
+    )
+    escrever(
+        f" • Dinheiro = kWh × preço do kWh (R$ {_n(entrada.tarifa_rs_kwh, 2)}). "
+        'Economia = quanto a conta cai em relação ao "referencia" (como é hoje).'
+    )
+    escrever(" • Retorno = investimento ÷ economia por ano: em quantos anos o aquecedor se paga.")
     escrever("\nComparação para a mesma família, em 12 meses:")
     escrever(tabela(cenarios, entrada.horizonte_anos))
     escrever("  kWh/mês = energia do banho por mês; Energia/ano = gasto do banho em 12 meses.")
@@ -166,6 +198,12 @@ def responder(entrada: Entrada, escrever=print) -> dict[str, Cenario]:
         escrever("  Opção viável agora: A (banho mais curto), se o tempo proposto for menor que o atual.")
     for chave, c in cenarios.items():
         escrever(f"  {chave}: {c.nome}")
+    escrever("\nSe o chuveiro tivesse outra potência (mesmo tempo e mesmo número de banhos):")
+    for potencia in sorted({4400.0, 5500.0, 7700.0, entrada.potencia_w}):
+        kwh = consumo_mensal_kwh(potencia, entrada.minutos_por_banho, entrada.banhos_por_dia)
+        marca = "  (o seu)" if potencia == entrada.potencia_w else ""
+        escrever(f"   {_n(potencia):>6} W: {_n(kwh, 1):>6} kWh/mês, {_reais(kwh * entrada.tarifa_rs_kwh * 12)} por ano{marca}")
+    escrever("   (valor bruto, sem o desconto da Tarifa Social; potências típicas de chuveiros elétricos)")
     escrever("\nO que recomendamos:")
     for i, linha in enumerate(recomendar(entrada, cenarios), 1):
         escrever(f" {i}. {linha}")
