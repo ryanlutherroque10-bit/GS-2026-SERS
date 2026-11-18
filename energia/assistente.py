@@ -134,6 +134,7 @@ def tabela(cenarios: dict[str, Cenario], horizonte: float) -> str:
 def responder(entrada: Entrada, escrever=print) -> dict[str, Cenario]:
     cenarios = comparar(entrada)
     ref = cenarios["referencia"]
+    opcao_a = cenarios["A"]
     escrever("\n================ RESULTADO ================")
     escrever(
         f"Hoje o banho gasta cerca de {_n(ref.kwh_mes)} kWh por mês "
@@ -141,6 +142,11 @@ def responder(entrada: Entrada, escrever=print) -> dict[str, Cenario]:
         f"ou cerca de {_reais(ref.custo_energia_ano / 12)} por mês "
         f"({_reais(ref.custo_energia_ano)} por ano) na conta."
     )
+    if opcao_a.kwh_evitados_ano > 0:
+        escrever(
+            f"Com a alternativa A, a conta da casa pode cair cerca de {_reais(opcao_a.economia_ano / 12)} "
+            "por mês, mantendo iguais os outros usos e a tarifa. É uma estimativa, não uma garantia."
+        )
     if entrada.tarifa_social:
         escrever(
             "Tarifa Social neste modelo: os primeiros 80 kWh do consumo total da casa no mês têm desconto de 100%. "
