@@ -167,6 +167,7 @@ class TestAssistente(unittest.TestCase):
         self.assertEqual(codigo, 0)
         for trecho in (
             "88 kWh por mês",
+            "R$ 83,60 por mês",
             "Comece pela alternativa A",
             "aquecedor solar",
             "Limites desta estimativa",
@@ -182,7 +183,17 @@ class TestAssistente(unittest.TestCase):
         codigo, texto = self.conversar(["4400", "10", "3", "1,00", "120", "n", "6", "s", "R$ 2500", "0,5", "n"])
         self.assertEqual(codigo, 0)
         self.assertIn("66 kWh por mês", texto)  # 4,4 kW × (10/60) h × 3 × 30
+        self.assertIn("kWh é a unidade de energia da conta", texto)
         self.assertIn("Até logo!", texto)
+
+    def test_tarifa_social_e_solar_indisponivel_ficam_claros(self):
+        entrada = replace(Entrada(), tarifa_social=True, pode_instalar_solar=False)
+        saida = []
+        assistente.responder(entrada, saida.append)
+        texto = "\n".join(saida)
+        self.assertIn("primeiros 80 kWh", texto)
+        self.assertIn("B e A+B são apenas comparações numéricas", texto)
+        self.assertIn("Opção viável agora: A", texto)
 
     def test_entrada_invalida_ajuda_e_valores_fora_da_faixa(self):
         codigo, texto = self.conversar(["abc", "?", "", "", "", "", "", "", "", "", "", "", "n"])
@@ -204,3 +215,4 @@ class TestAssistente(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
