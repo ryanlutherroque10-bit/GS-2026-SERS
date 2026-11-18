@@ -46,9 +46,9 @@ As respostas C1 a C4 foram preservadas em resumo, pois não foi informado se hou
 
 | Problema observado | Quem relatou | Ajuste feito | Arquivo e commit |
 | --- | --- | --- | --- |
-| Gasto mensal pouco visível e tabela difícil de ler | P1, P2, P3 | Destacar o custo mensal do banho e explicar as colunas da comparação | `energia/assistente.py`; commit a registrar após publicação |
-| Dificuldade com kWh, dados da conta e Tarifa Social | P2, P4 | Incluir orientações curtas na coleta e um exemplo do limite de 80 kWh no resultado | `energia/assistente.py`; commit a registrar após publicação |
-| Aquecedor aparece quando a instalação não é permitida | P5 | Identificar os cenários solares como indisponíveis e destacar a alternativa viável | `energia/assistente.py`; commit a registrar após publicação |
+| Gasto mensal pouco visível e tabela difícil de ler | P1, P2, P3 | Destacar o custo mensal do banho e explicar as colunas da comparação | `energia/assistente.py`; commit `203d0c2` |
+| Dificuldade com kWh, dados da conta e Tarifa Social | P2, P4 | Incluir orientações curtas na coleta e um exemplo do limite de 80 kWh no resultado | `energia/assistente.py`; commit `203d0c2` |
+| Aquecedor aparece quando a instalação não é permitida | P5 | Identificar os cenários solares como indisponíveis e destacar a alternativa viável | `energia/assistente.py`; commit `203d0c2` |
 
 ## Resumo
 
