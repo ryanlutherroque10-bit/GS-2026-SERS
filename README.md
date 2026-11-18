@@ -42,7 +42,7 @@ Em cada pergunta, Enter aceita o valor entre colchetes, `?` explica de onde ele 
 python -m unittest discover -s tests -v
 ```
 
-O conjunto inclui testes de fórmulas, cenário documentado, Tarifa Social, limites, entradas inválidas e a conversa do assistente. A execução anterior, de 16/11/2026, registrou 15/15 aprovados em [`evidencias/saida-testes.txt`](evidencias/saida-testes.txt). As mudanças posteriores devem ser testadas novamente antes da entrega.
+O conjunto inclui testes de fórmulas, cenário documentado, Tarifa Social, limites, entradas inválidas e a conversa do assistente. Em 18/11/2026, os **16 testes passaram** com Python 3.14.4 no [GitHub Actions](https://github.com/ryanlutherroque10-bit/GS-2026-SERS/actions/runs/44316103530), que também executou o cenário de exemplo. O arquivo [`evidencias/saida-testes.txt`](evidencias/saida-testes.txt) guarda a execução anterior, de 16/11/2026 (15 testes).
 
 ## Resultado do cenário de referência
 
@@ -79,7 +79,7 @@ entrega_SERS.txt           arquivo de entrega do Portal (ainda com pendência)
 | Item do enunciado | Situação atual |
 | --- | --- |
 | Contexto, análise de consumo, comparação, integração ao assistente, referências e limitações | feito (código, dados e documentação neste repositório) |
-| Testes técnicos | Última execução em 16/11/2026: 15/15; mudanças posteriores ainda sem reexecução |
+| Testes técnicos | 16/16 aprovados em 18/11/2026 no GitHub Actions; cenário de exemplo executado |
 | **Testes com usuários** | Cinco testes remotos aplicados em 17/11/2026 por Ryan Luther, com respostas e ajustes registrados em `docs/testes-com-usuarios.md` |
 | **Vídeo de até 3 minutos no YouTube (não listado)** | **pendente da equipe.** Roteiro em `docs/roteiro-video.md` |
 | **Arquivo `.txt` do Portal** | **incompleto:** falta o link do vídeo |
